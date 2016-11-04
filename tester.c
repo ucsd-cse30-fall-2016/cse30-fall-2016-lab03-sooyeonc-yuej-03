@@ -1,5 +1,6 @@
-/**
- * THIS FILE MAY BE USED FOR TEST CODE. IT WILL NOT BE COLLECTED
+/*
+ * Sooyeon E. Chough (A92093139)
+ * Yue Jiang (A92095681)
  */
 
 #include <stdio.h>
@@ -9,6 +10,7 @@
 #include "encoder.h"
 #include "decoder.h"
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[])
+{
     return 0;
 }
