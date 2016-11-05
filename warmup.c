@@ -15,7 +15,6 @@ unsigned int *char_freqs(FILE *fp)
       return NULL;
    }
    // Getting file in read only mode
-   FILE fp = fopen( argv[ 1 ], "r" );
    char *ascii[ 256 ];
    // Getting first char to start loop
    char ch = fgetc( fp );
