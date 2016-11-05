@@ -37,10 +37,13 @@ unsigned int *char_freqs(FILE *fp)
 
 int reorder_bytes(int num)
 {
-   int littlest = num >> 24;
-   int littler = (num << 8) >> 24;
-   int bigger = (num << 16) >> 24;
-   int biggest = (num << 24) >> 24;
-   int reverse = biggest + bigger + littler + littlest;
+   // Creating necessary int
+   int reverse = 0;
+   int mask = 0xff;
+   // Getting each necessary bit, reordering, and adding
+   reverse = reverse + ( ( num & mask ) << 24 );
+   reverse = reverse + ( ( (num >> 8) & mask ) << 16 );
+   reverse = reverse + ( ( (num >> 16) & mask ) << 8 );
+   reverse = reverse + ( (num >> 24) & mask );
    return reverse;
 }
