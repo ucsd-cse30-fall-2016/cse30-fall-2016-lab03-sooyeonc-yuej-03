@@ -38,5 +38,10 @@ unsigned int *char_freqs(FILE *fp)
 
 int reorder_bytes(int num)
 {
-   /* Your code goes here*/
+   int littlest = num >> 24;
+   int littler = (num << 8) >> 24;
+   int bigger = (num << 16) >> 24;
+   int biggest = (num << 24) >> 24;
+   int reverse = biggest + bigger + littler + littlest;
+   return reverse;
 }
