@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include "warmup.h"
 
-unsigned int* char_freqs(FILE *fp)
+unsigned int *char_freqs(FILE *fp)
 {
    // Checking if file is null
    if( fp == NULL )
