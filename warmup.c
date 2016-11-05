@@ -31,7 +31,7 @@ unsigned int *char_freqs(FILE *fp)
    // Closing the stream
    fclose( fp );
    // Returning array
-   return ascii;
+   return &ascii;
 }
   
 
