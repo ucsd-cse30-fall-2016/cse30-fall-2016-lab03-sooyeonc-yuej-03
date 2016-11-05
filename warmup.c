@@ -15,10 +15,10 @@ unsigned int *char_freqs(FILE *fp)
       return NULL;
    }
    // Getting file in read only mode
-   FILE filename = fopen( fp, "r" );
+   FILE fp = fopen( argv[ 1 ], "r" );
    char *ascii[ 256 ];
    // Getting first char to start loop
-   char ch = fgetc( filename );
+   char ch = fgetc( fp );
    // Looping through the file 
    while( ch != EOF && ch != '\n' )
    {      
@@ -27,10 +27,10 @@ unsigned int *char_freqs(FILE *fp)
       // Incrementing array
       ascii[ c ] = ascii[ c ] + 1;
       // Getting char 
-      ch = fgetc( filename );
+      ch = fgetc( fp );
    }
    // Closing the stream
-   fclose( filename );
+   fclose( fp );
    // Returning array
    return ascii;
 }
