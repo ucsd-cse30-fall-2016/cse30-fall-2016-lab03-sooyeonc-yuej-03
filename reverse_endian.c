@@ -14,7 +14,7 @@ int main(int argc, char** argv)
      // Initializing variables for later usage
      FILE *fi, *fo;
      int *ptr;
-     int *flip;
+     int flip;
      
      // Accounting for if not enough arguments when opening file
      if( argc < 3 )
@@ -31,7 +31,7 @@ int main(int argc, char** argv)
      {
           // Flipping bytes and writing to output file
           flip = reorder_bytes( ptr );
-          ptr = fwrite( ptr, 4, 1, fo );
+          ptr = fwrite( flip, 4, 1, fo );
      }
      // Closing the files
      fclose( fo );
