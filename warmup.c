@@ -14,8 +14,8 @@ unsigned int *char_freqs(FILE *fp)
    {
       return NULL;
    }
-   // Getting file in read only mode
-   char *ascii[ 256 ];
+   // Making array
+   unsigned int *ascii[ 256 ];
    // Getting first char to start loop
    char ch = fgetc( fp );
    // Looping through the file 
@@ -31,7 +31,7 @@ unsigned int *char_freqs(FILE *fp)
    // Closing the stream
    fclose( fp );
    // Returning array
-   return &ascii;
+   return *ascii;
 }
   
 
