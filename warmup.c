@@ -41,9 +41,9 @@ int reorder_bytes(int num)
    int reverse = 0;
    int mask = 0xff;
    // Getting each necessary bit, reordering, and adding
-   reverse = reverse + ( ( num & mask ) << 24 );
-   reverse = reverse + ( ( (num >> 8) & mask ) << 16 );
-   reverse = reverse + ( ( (num >> 16) & mask ) << 8 );
-   reverse = reverse + ( (num >> 24) & mask );
+   reverse = reverse + ( ( num & mask ) << 8 );
+   reverse = reverse + ( (num >> 8) & mask );
+   reverse = reverse + ( ( (num >> 16) & mask ) << 24 );
+   reverse = reverse + ( ( (num >> 24) & mask ) << 16 );
    return reverse;
 }
