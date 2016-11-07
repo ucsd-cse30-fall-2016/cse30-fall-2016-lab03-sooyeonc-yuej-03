@@ -16,22 +16,84 @@
 /**
  * This function is a helper method that returns the index from the MAPPING array
  * that holds the same char as the parameter. If the char does not exist in the array.
- * then returns a null value. 
+ * then returns -1. 
  *
  * @param c The char to find in the MAPPING array
- * @returns the int value of where c is in the array
+ * @returns the int value of where c is in the array or -1 if not in array
  */
 int mappingArrayIndex(char c)
 {
+    // Initializing necessary variables
     int i;
+    // Looping through MAPPING array 
     for( i = 0; i < MAPPED_CHARS; i++ )
     {
+        // If char is in that index, returning index
         if( c == MAPPING[ i ] )
         {
             return i;
         }
     }
-    return NULL;
+    // Returning -1 if char is not in MAPPING array
+    return -1;
+}
+
+/**
+ * Helper method to turn int into where each digit is in an array.
+ *
+ * @param num in decimal form
+ * @returns binary form of the number in an array
+ */
+int* intToBinaryArray( int num )
+{
+    // Making variables and int array to return
+    int *bin[ 6 ];
+    int i, check, temp;
+    check = num;
+    // Turning into binary
+    for( i = 0; i < 6; i++ ) 
+    {
+        temp = check / 2;
+        if( temp == check )
+        {
+            bin[ i ] = 0;
+        }
+        else
+        {
+            bin[ i ] = 1;
+        }
+        check = temp;
+    }
+    return bin;
+}
+
+/**
+ * Takes an int array of 1s and 0s and turns it into a
+ * char array of '1's and '0's. Returns null if the
+ * array has any other numbers 
+ */
+char* binaryArrayToCharArray( int *bin[] )
+{
+    // Initializing necessary variables
+    char* arr[ 6 ];
+    int i;
+    // Looping through the binary array
+    for( i = 0; i < 6; i ++ )
+    {
+        if( bin[ i ] == 1 )
+        {
+            arr[ i ] = '1';
+        }
+        else if( bin[ i ] == 0 )
+        {
+            arr[ i ] = '0';
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+    return arr;
 }
 
 /**
@@ -48,7 +110,13 @@ int mappingArrayIndex(char c)
  */
 char* encodeChar(char c)
 {
-    // TODO Implement me!
+    // Creating variables and the array to return
+    char *coded[ 6 ];
+    int index, i;
+    createReverseMapping();
+    index = mappingArrayIndex( c );
+    coded = binaryArrayToCharArray( intToBinaryArray( index ) );
+    return coded;
 }
 
 /**
