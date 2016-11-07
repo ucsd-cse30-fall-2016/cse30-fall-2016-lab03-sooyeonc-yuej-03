@@ -12,6 +12,28 @@
 #include <limits.h>
 #include "common.h"
 #include "encoder.h"
+
+/**
+ * This function is a helper method that returns the index from the MAPPING array
+ * that holds the same char as the parameter. If the char does not exist in the array.
+ * then returns a null value. 
+ *
+ * @param c The char to find in the MAPPING array
+ * @returns the int value of where c is in the array
+ */
+int mappingArrayIndex(char c)
+{
+    int i;
+    for( i = 0; i < MAPPED_CHARS; i++ )
+    {
+        if( c == MAPPING[ i ] )
+        {
+            return i;
+        }
+    }
+    return NULL;
+}
+
 /**
  *
  * This function takes a char c as input and returns a (6 character) array
@@ -24,7 +46,8 @@
  * @param c The input character to encode
  * @returns a six character array which encodes the index into ASCII binary
  */
-char* encodeChar(char c){
+char* encodeChar(char c)
+{
     // TODO Implement me!
 }
 
@@ -39,7 +62,8 @@ char* encodeChar(char c){
  * @param index the index to implant the bit into (0 is LSB)
  * @returns the char with bit b implanted into the input index
  */
-char implantBit(char c, int bit, int index){
+char implantBit(char c, int bit, int index)
+{
     // TODO Implement me!
 }
 
@@ -53,7 +77,8 @@ char implantBit(char c, int bit, int index){
  * @param in The input text file to read
  * @param out The output file, in ASCII encoded "binary"
  */
-void textToBinary(FILE *in, FILE *out){
+void textToBinary(FILE *in, FILE *out)
+{
     // TODO Implement me!
 }
 
@@ -73,7 +98,8 @@ void textToBinary(FILE *in, FILE *out){
  * @param out The output file to write to
  * @param index the index of the bit where binary values should be implanted (0 is LSB)
  */
-void binaryToCode(FILE *in, FILE *out, int index){
+void binaryToCode(FILE *in, FILE *out, int index)
+{
     srand(1); //DO NOT REMOVE OR EDIT THIS LINE OF CODE
     // TODO Implement me!
 }
@@ -89,6 +115,7 @@ void binaryToCode(FILE *in, FILE *out, int index){
  * @param output the path to the encoded output file 
  * @param index The index of the bit where binary values should be implanted (0 is LSB)
 */
-void encodeFile(char* input, char* bin, char* output, int index){
+void encodeFile(char* input, char* bin, char* output, int index)
+{
     // TODO Implement me!
 }
