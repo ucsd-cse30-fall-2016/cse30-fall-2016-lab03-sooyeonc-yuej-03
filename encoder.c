@@ -39,15 +39,16 @@ int mappingArrayIndex(char c)
 }
 
 /**
- * Helper method to turn int into where each digit is in an array.
+ * Helper method to turn int into where each digit is in an array
+ * but in char form
  *
  * @param num in decimal form
- * @returns binary form of the number in an array
+ * @returns binary form of the number in an array as char
  */
-int* intToBinaryArray( int num )
+char* intToCharArray( int num )
 {
     // Making variables and int array to return
-    int *bin[ 6 ];
+    char *bin[ 6 ];
     int i, check, temp;
     check = num;
     // Turning into binary
@@ -56,44 +57,15 @@ int* intToBinaryArray( int num )
         temp = check / 2;
         if( temp == check )
         {
-            bin[ i ] = 0;
+            bin[ i ] = '0';
         }
         else
         {
-            bin[ i ] = 1;
+            bin[ i ] = '1';
         }
         check = temp;
     }
     return bin;
-}
-
-/**
- * Takes an int array of 1s and 0s and turns it into a
- * char array of '1's and '0's. Returns null if the
- * array has any other numbers 
- */
-char* binaryArrayToCharArray( int *bin[] )
-{
-    // Initializing necessary variables
-    char* arr[ 6 ];
-    int i;
-    // Looping through the binary array
-    for( i = 0; i < 6; i ++ )
-    {
-        if( bin[ i ] == 1 )
-        {
-            arr[ i ] = '1';
-        }
-        else if( bin[ i ] == 0 )
-        {
-            arr[ i ] = '0';
-        }
-        else
-        {
-            return NULL;
-        }
-    }
-    return arr;
 }
 
 /**
@@ -115,7 +87,7 @@ char* encodeChar(char c)
     int index, i;
     createReverseMapping();
     index = mappingArrayIndex( c );
-    coded = binaryArrayToCharArray( intToBinaryArray( index ) );
+    coded = intToCharArray( index );
     return coded;
 }
 
