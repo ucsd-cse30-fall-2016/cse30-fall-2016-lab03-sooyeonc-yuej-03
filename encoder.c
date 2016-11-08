@@ -25,11 +25,13 @@ int mappingArrayIndex(char c)
 {
     // Initializing necessary variables
     int i;
+    char check;
     // Looping through MAPPING array 
     for( i = 0; i < MAPPED_CHARS; i++ )
     {
+        check = MAPPING[ i ];
         // If char is in that index, returning index
-        if( c == *MAPPING[ i ] )
+        if( c == check )
         {
             return i;
         }
