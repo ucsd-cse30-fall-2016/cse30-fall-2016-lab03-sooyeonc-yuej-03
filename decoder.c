@@ -25,8 +25,16 @@
  */
 int extractBit(char c, int index)
 {
-    // TODO Implement me!
-    return 0;
+    // Initializing necessary variables
+    int ch, i;
+    // Getting the binary version of the char
+    ch = (int) c;
+    // Shifting ch as necessary to get wanted index
+    ch = ch >> index;
+    // Getting wanted bit
+    i = ch & 0x01;
+    // Returning the bit
+    return i;
 }
 
 /**
