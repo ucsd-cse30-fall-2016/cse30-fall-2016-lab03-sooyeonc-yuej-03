@@ -61,10 +61,10 @@ char* encodeChar(char c)
     // Creating char array
     check = index;
     // Turning into binary
-    for( i = 5; i > -1; i-- ) 
+    for( i = 0; i < 6; i++ ) 
     {
-        // Divides by 2^(i - 1) and finds remainder
-        temp = check % (0x01 << (i - 1));
+        // Divides by 2^(6 - i) and finds remainder
+        temp = check % (0x20 >> i);
         // Inputs '0' or '1' into array
         if( temp == check )
         {
