@@ -52,9 +52,9 @@ char* intToCharArray( int num )
     int i, check, temp;
     check = num;
     // Turning into binary
-    for( i = 0; i < 6; i++ ) 
+    for( i = 5; i > -1; i-- ) 
     {
-        temp = check / 2;
+        temp = check % (2^i);
         if( temp == check )
         {
             bin[ i ] = '0';
