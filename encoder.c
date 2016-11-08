@@ -128,7 +128,22 @@ char implantBit(char c, int bit, int index)
  */
 void textToBinary(FILE *in, FILE *out)
 {
-    // TODO Implement me!
+    // Initializing variables necessary
+    int *ptr;
+    char c;
+    char *bin[ 6 ];
+    // Reading the input file
+    c = fgetc( in );
+    // Looping through file
+    while( c != EOF )
+    {
+        // Getting char array in binary format
+        *bin = encodeChar( c );
+        // Writing it to output file
+        *ptr = fwrite( bin, sizeof(char)*6, 1, out );
+        // Getting next char
+        c = fgetc( in );
+    }
 }
 
 /**
