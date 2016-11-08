@@ -29,7 +29,7 @@ int mappingArrayIndex(char c)
     for( i = 0; i < MAPPED_CHARS; i++ )
     {
         // If char is in that index, returning index
-        if( c == MAPPING[ i ] )
+        if( c == *MAPPING[ i ] )
         {
             return i;
         }
@@ -54,19 +54,17 @@ char* encodeChar(char c)
 {
     // Creating variables and the array to return
     char *coded[ 6 ];
-    int index, check, temp, i;
+    int index, temp, i;
     createReverseMapping();
     // Getting index value for c using helper method
     index = mappingArrayIndex( c );
-    // Creating char array
-    check = index;
     // Turning into binary
     for( i = 0; i < 6; i++ ) 
     {
         // Divides by 2^(6 - i) and finds remainder
-        temp = check % (0x20 >> i);
+        temp = index % (0x20 >> i);
         // Inputs '0' or '1' into array
-        if( temp == check )
+        if( temp == index )
         {
             *coded[ i ] = '0';
         }
@@ -74,8 +72,8 @@ char* encodeChar(char c)
         {
             *coded[ i ] = '1';
         }
-        // Resets checking value
-        check = temp;
+        // Repurposing index
+        index = temp;
     }
     // Returns resulting array
     return *coded;
