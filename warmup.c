@@ -25,7 +25,7 @@ unsigned int *char_freqs(FILE *fp)
       // Converting to int
       c = (int) ch;
       // Incrementing array
-      *ascii[ c ] = *ascii[ c ] + 1;
+      ascii[ c ] = ascii[ c ] + 1;
       // Getting char 
       ch = fgetc( fp );
    }
