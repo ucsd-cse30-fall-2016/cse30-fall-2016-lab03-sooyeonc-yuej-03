@@ -39,36 +39,6 @@ int mappingArrayIndex(char c)
 }
 
 /**
- * Helper method to turn int into where each digit is in an array
- * but in char form
- *
- * @param num in decimal form
- * @returns binary form of the number in an array as char
- */
-char* intToCharArray( int num )
-{
-    // Making variables and int array to return
-    char *bin[ 6 ];
-    int i, check, temp;
-    check = num;
-    // Turning into binary
-    for( i = 5; i > -1; i-- ) 
-    {
-        temp = check % (2^i);
-        if( temp == check )
-        {
-            *bin[ i ] = '0';
-        }
-        else
-        {
-            *bin[ i ] = '1';
-        }
-        check = temp;
-    }
-    return *bin;
-}
-
-/**
  *
  * This function takes a char c as input and returns a (6 character) array
  * that represents the 6 digit code for that character. This code is simply
@@ -84,10 +54,30 @@ char* encodeChar(char c)
 {
     // Creating variables and the array to return
     char *coded[ 6 ];
-    int index;
+    int index, check, temp, i;
     createReverseMapping();
+    // Getting index value for c using helper method
     index = mappingArrayIndex( c );
-    *coded = intToCharArray( index );
+    // Creating char array
+    check = index;
+    // Turning into binary
+    for( i = 5; i > -1; i-- ) 
+    {
+        // Divides by 2^(i - 1) and finds remainder
+        temp = check % (0x01 << (i - 1));
+        // Inputs '0' or '1' into array
+        if( temp == check )
+        {
+            *coded[ i ] = '0';
+        }
+        else
+        {
+            *coded[ i ] = '1';
+        }
+        // Resets checking value
+        check = temp;
+    }
+    // Returns resulting array
     return *coded;
 }
 
@@ -129,7 +119,7 @@ char implantBit(char c, int bit, int index)
 void textToBinary(FILE *in, FILE *out)
 {
     // Initializing variables necessary
-    int *ptr;
+    int *ptr = NULL;
     char c;
     char *bin[ 6 ];
     // Reading the input file
@@ -165,6 +155,7 @@ void textToBinary(FILE *in, FILE *out)
 void binaryToCode(FILE *in, FILE *out, int index)
 {
     srand(1); //DO NOT REMOVE OR EDIT THIS LINE OF CODE
+    
     // TODO Implement me!
 }
 
