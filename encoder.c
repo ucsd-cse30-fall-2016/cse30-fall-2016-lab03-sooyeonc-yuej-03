@@ -57,15 +57,15 @@ char* intToCharArray( int num )
         temp = check % (2^i);
         if( temp == check )
         {
-            bin[ i ] = '0';
+            *bin[ i ] = '0';
         }
         else
         {
-            bin[ i ] = '1';
+            *bin[ i ] = '1';
         }
         check = temp;
     }
-    return bin;
+    return *bin;
 }
 
 /**
@@ -84,11 +84,11 @@ char* encodeChar(char c)
 {
     // Creating variables and the array to return
     char *coded[ 6 ];
-    int index, i;
+    int index;
     createReverseMapping();
     index = mappingArrayIndex( c );
-    coded = intToCharArray( index );
-    return coded;
+    *coded = intToCharArray( index );
+    return *coded;
 }
 
 /**
@@ -104,7 +104,16 @@ char* encodeChar(char c)
  */
 char implantBit(char c, int bit, int index)
 {
-    // TODO Implement me!
+    // Initializing variables to use later
+    char changed;
+    int bin, mask;
+    // Getting binary version of char
+    bin = (int) c; 
+    // Creating and using mask
+    mask = 0xff - (0x01 << index);
+    bin = bin & mask;
+    changed = (char) (bin + (bit << index));
+    return changed;
 }
 
 /**
