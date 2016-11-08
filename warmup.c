@@ -14,22 +14,21 @@ unsigned int *char_freqs(FILE *fp)
    {
       return NULL;
    }
-   // Making array
+   // Making array and other necessary variables
    unsigned int *ascii[ 256 ];
+   int c;
    // Getting first char to start loop
    char ch = fgetc( fp );
    // Looping through the file 
    while( ch != EOF && ch != '\n' )
    {      
       // Converting to int
-      int c = (int) ch;
+      c = (int) ch;
       // Incrementing array
-      ascii[ c ] = ascii[ c ] + 1;
+      *ascii[ c ] = *ascii[ c ] + 1;
       // Getting char 
       ch = fgetc( fp );
    }
-   // Closing the stream
-   fclose( fp );
    // Returning array
    return *ascii;
 }
