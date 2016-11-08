@@ -23,8 +23,10 @@
  * @param index the index of the bit to extract
  * @returns the value of the bit at index in c
  */
-int extractBit(char c, int index){
+int extractBit(char c, int index)
+{
     // TODO Implement me!
+    return 0;
 }
 
 /**
@@ -36,8 +38,10 @@ int extractBit(char c, int index){
  * @param b a pointer to a 6 character array, with ASCII '1's and '0's
  * @returns the corresponding character from MAPPING
  */
-char decodeChar(char *b){
+char decodeChar(char *b)
+{
     // TODO Implement me!
+    return 'a';
 }
 
 /**
@@ -54,7 +58,8 @@ char decodeChar(char *b){
  * @param out the output file to write the extracted ASCII binary into
  * @param index the index of the bit to extract from each char
 */
-void codeToBinary(FILE *in, FILE *out, int index){
+void codeToBinary(FILE *in, FILE *out, int index)
+{
     // TODO Implement me!
 }
 
@@ -69,7 +74,8 @@ void codeToBinary(FILE *in, FILE *out, int index){
  * @param in the input file, encoded as ASCII '1's and '0's
  * @Param out the decoded output file (ASCII)
 */
-void binaryToText(FILE *in, FILE *out){
+void binaryToText(FILE *in, FILE *out)
+{
     // TODO Implement me!
 }
 
@@ -84,6 +90,7 @@ void binaryToText(FILE *in, FILE *out){
  * @param output the path to the decoded output file
  * @param index The index of the bit from which binary values should be extracted
  */
-void decodeFile(char* input, char* bin, char* output, int index){
+void decodeFile(char* input, char* bin, char* output, int index)
+{
     // TODO Implement me!
 }
