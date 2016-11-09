@@ -135,18 +135,15 @@ void binaryToCode(FILE *in, FILE *out, int index)
     int c, ran;
     char ch, dom;
     // Getting char to read
-    ch = fgetc( in );
-    while( ch != EOF )
+    c = (int) fgetc( in );
+    while( c != EOF )
     {
-        // Turning char into int
-        int c = (int) ch;
         // Generating the random char
-        ran = rand()%256;
-        dom = (char) ran;
+        random = (char) rand()%256;
         // Implanting the bit
-        implantBit( dom, c, index );
+        implantBit( random, c, index );
         // Getting next char
-        ch = fgetc( in );
+        c = (int) fgetc( in );
     }
     // End of function
     return;
