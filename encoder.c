@@ -101,10 +101,11 @@ void textToBinary(FILE *in, FILE *out)
         // Getting char array in binary format
         bin = encodeChar( c );
         // Writing it to output file
-        *ptr = fwrite( bin, sizeof(char)*6, 1, out );
+        fwrite( bin, sizeof(char)*6, 1, out );
         // Getting next char
-        c = fgetc( in );
+        //c = fgetc( in );
     }
+    return;
 }
 
 /**
