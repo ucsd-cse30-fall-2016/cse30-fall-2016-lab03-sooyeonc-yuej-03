@@ -146,7 +146,7 @@ void binaryToCode(FILE *in, FILE *out, int index)
         // Allocating memory
         code = (char*) malloc( sizeof(char) );
         // Implanting the bit
-        &code = implantBit( random, c, index );
+        *code = implantBit( random, c, index );
         // Writing into file
         fwrite( code, sizeof(char), 1, out );
         // Freeing memory
