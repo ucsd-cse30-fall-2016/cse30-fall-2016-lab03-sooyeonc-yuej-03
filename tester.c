@@ -12,5 +12,20 @@
 
 int main(int argc, char *argv[])
 {
+    // Files to test with
+    FILE *fi, *fo, *fp;
+    
+    // Opening files
+     fi = fopen( argv[ 1 ], "r" );
+     fo = fopen( argv[ 2 ], "w" );
+    
+    // Testing actual methods
+    textToBinary( fi, fo );
+    
+    // Closing files
+    fclose( fi );
+    fclose( fo );
+    
+    // End of file
     return 0;
 }
