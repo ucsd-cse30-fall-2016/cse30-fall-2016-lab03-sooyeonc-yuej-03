@@ -134,7 +134,7 @@ void binaryToCode(FILE *in, FILE *out, int index)
     // Initializing necessary variables
     int bit; 
     char ch, random;
-    char code;
+    char *code;
     // Getting char to read
     ch = fgetc( in );
     while( ch != EOF )
@@ -146,9 +146,9 @@ void binaryToCode(FILE *in, FILE *out, int index)
         // Allocating memory
         code = (char*) malloc( sizeof(char) );
         // Implanting the bit
-        code = implantBit( random, bit, index );
+        *code = implantBit( random, bit, index );
         // Writing into file
-        fwrite( &code, sizeof(char), 1, out );
+        fwrite( code, sizeof(char), 1, out );
         // Freeing memory
         free( code );
         // Getting next char
