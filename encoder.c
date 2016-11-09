@@ -142,7 +142,7 @@ void binaryToCode(FILE *in, FILE *out, int index)
         // Generating the random char
         random = (char) rand()%256;
         // Implanting the bit
-        code = implantBit( random, c, index );
+        *code = implantBit( random, c, index );
         // Writing into file
         fwrite( code, sizeof(char), 1, out );
         // Getting next char
