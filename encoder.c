@@ -35,18 +35,18 @@ char* encodeChar(char c)
     index = (int) c;
     index = REVERSE_MAPPING[ index ];
     // Turning into binary
-    for( i = 5; i >= 0; i-- ) 
+    for( i = 6; i > 0; i-- ) 
     {
-        temp = index % 2;
+        temp = index & 0x01;
         if( temp == 0 )
         {
-            *coded[ i ] = '0';
+            *coded[ i - 1 ] = '0';
         }
         else
         {
-            *coded[ i ] = '1';
+            *coded[ i - 1 ] = '1';
         }
-        index = index / 2;
+        index = index >> 1;
     }
     // Returns resulting array
     return *coded;
