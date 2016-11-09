@@ -98,10 +98,14 @@ void textToBinary(FILE *in, FILE *out)
     // Looping through file
     while( c != EOF )
     {
+        // Allocating memory
+        bin = (char*) malloc( sizeof(char) );
         // Getting char array in binary format
         bin = encodeChar( c );
         // Writing it to output file
         fwrite( bin, sizeof(char)*6, 1, out );
+        // Freeing memory
+        free( bin );
         // Getting next char
         c = fgetc( in );
     }
