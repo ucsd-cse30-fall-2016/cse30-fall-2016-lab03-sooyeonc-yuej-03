@@ -133,7 +133,8 @@ void binaryToCode(FILE *in, FILE *out, int index)
     srand(1); 
     // Initializing necessary variables
     int c; 
-    char random, code;
+    char random;
+    char *code;
     // Getting char to read
     c = (int) fgetc( in );
     while( c != EOF )
@@ -143,7 +144,7 @@ void binaryToCode(FILE *in, FILE *out, int index)
         // Implanting the bit
         code = implantBit( random, c, index );
         // Writing into file
-        fwrite( code, sizeof( char ), 1, out );
+        fwrite( code, sizeof(char), 1, out );
         // Getting next char
         c = (int) fgetc( in );
     }
