@@ -132,7 +132,7 @@ void binaryToCode(FILE *in, FILE *out, int index)
     //DO NOT REMOVE OR EDIT THIS LINE OF CODE
     srand(1); 
     // Initializing necessary variables
-    int c, 
+    int c;
     char random;
     // Getting char to read
     c = (int) fgetc( in );
