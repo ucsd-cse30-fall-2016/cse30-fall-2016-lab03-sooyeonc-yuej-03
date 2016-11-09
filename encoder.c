@@ -90,9 +90,8 @@ char implantBit(char c, int bit, int index)
 void textToBinary(FILE *in, FILE *out)
 {
     // Initializing variables necessary
-    int *ptr = NULL;
     char c;
-    char *bin = (char*) malloc( sizeof(char) );
+    char *bin;
     // Reading the input file
     c = fgetc( in );
     // Looping through file
@@ -130,9 +129,24 @@ void textToBinary(FILE *in, FILE *out)
  */
 void binaryToCode(FILE *in, FILE *out, int index)
 {
-    srand(1); //DO NOT REMOVE OR EDIT THIS LINE OF CODE
-    
-    // TODO Implement me!
+    //DO NOT REMOVE OR EDIT THIS LINE OF CODE
+    srand(1); 
+    // Initializing necessary variables
+    int c, 
+    char random;
+    // Getting char to read
+    c = (int) fgetc( in );
+    while( c != EOF )
+    {
+        // Generating the random char
+        random = (char) rand()%256;
+        // Implanting the bit
+        implantBit( random, c, index );
+        // Getting next char
+        c = (int) fgetc( in );
+    }
+    // End of function
+    return;
 }
 
 /**
