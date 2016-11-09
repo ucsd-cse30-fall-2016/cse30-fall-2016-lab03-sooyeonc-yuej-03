@@ -63,8 +63,8 @@ char* encodeChar(char c)
     // Turning into binary
     for( i = 0; i < 6; i++ ) 
     {
-        // Divides by 2^(6 - i) and finds remainder
-        temp = index % (0x20 >> i);
+        // Divides by 2^(5 - i) and finds remainder
+        temp = index % (32 >> i);
         // Inputs '0' or '1' into array
         if( temp == index )
         {
