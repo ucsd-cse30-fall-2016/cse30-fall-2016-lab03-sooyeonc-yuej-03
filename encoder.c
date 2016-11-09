@@ -35,12 +35,10 @@ char* encodeChar(char c)
     index = (int) c;
     index = REVERSE_MAPPING[ index ];
     // Turning into binary
-    for( i = 0; i < 6; i++ ) 
+    for( i = 5; i >= 0; i-- ) 
     {
-        // Divides by 2^(5 - i) and finds remainder
-        temp = index % (32 >> i);
-        // Inputs '0' or '1' into array
-        if( temp == index )
+        temp = index % 2;
+        if( temp == 0 )
         {
             *coded[ i ] = '0';
         }
@@ -48,8 +46,7 @@ char* encodeChar(char c)
         {
             *coded[ i ] = '1';
         }
-        // Repurposing index
-        index = temp;
+        index = index / 2;
     }
     // Returns resulting array
     return *coded;
