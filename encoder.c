@@ -108,6 +108,7 @@ void textToBinary(FILE *in, FILE *out)
         // Getting next char
         c = fgetc( in );
     }
+    // End of function
     return;
 }
 
@@ -139,8 +140,15 @@ void binaryToCode(FILE *in, FILE *out, int index)
     ch = fgetc( in );
     while( ch != EOF )
     {
-        // Turning into int
-        bit = (int) ch;
+        // Turning into int aka 1 or 0
+        if( ch == '0' )
+        {
+            bit = 0;
+        }
+        else
+        {
+            bit = 1;
+        }
         // Generating the random char
         random = (char) rand()%256;
         // Allocating memory
