@@ -96,7 +96,7 @@ void textToBinary(FILE *in, FILE *out)
     // Reading the input file
     c = fgetc( in );
     // Looping through file
-    while( c != EOF )
+    while( !foef( in ) )
     {
         // Getting char array in binary format
         bin = encodeChar( c );
