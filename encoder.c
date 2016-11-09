@@ -28,7 +28,7 @@
 char* encodeChar(char c)
 {
     // Creating variables and the array to return
-    char *coded[ 6 ];
+    char *coded[ 6 ] = (char*) malloc( sizeof(char) );
     int index, temp, i;
     createReverseMapping();
     // Getting index value for c in the new map
