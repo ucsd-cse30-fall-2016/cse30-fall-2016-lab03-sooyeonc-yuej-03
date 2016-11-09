@@ -14,33 +14,6 @@
 #include "encoder.h"
 
 /**
- * This function is a helper method that returns the index from the MAPPING array
- * that holds the same char as the parameter. If the char does not exist in the array.
- * then returns -1. 
- *
- * @param c The char to find in the MAPPING array
- * @returns the int value of where c is in the array or -1 if not in array
- */
-int mappingArrayIndex(char c)
-{
-    // Initializing necessary variables
-    int i;
-    char check;
-    // Looping through MAPPING array 
-    for( i = 0; i < MAPPED_CHARS; i++ )
-    {
-        check = MAPPING[ i ];
-        // If char is in that index, returning index
-        if( c == check )
-        {
-            return i;
-        }
-    }
-    // Returning -1 if char is not in MAPPING array
-    return -1;
-}
-
-/**
  *
  * This function takes a char c as input and returns a (6 character) array
  * that represents the 6 digit code for that character. This code is simply
@@ -58,8 +31,9 @@ char* encodeChar(char c)
     char *coded[ 6 ];
     int index, temp, i;
     createReverseMapping();
-    // Getting index value for c using helper method
-    index = mappingArrayIndex( c );
+    // Getting index value for c in the new map
+    index = (int) c;
+    index = REVERSE_MAPPING[ index ];
     // Turning into binary
     for( i = 0; i < 6; i++ ) 
     {
