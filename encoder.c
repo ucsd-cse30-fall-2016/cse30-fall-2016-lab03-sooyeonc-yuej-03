@@ -139,6 +139,8 @@ void binaryToCode(FILE *in, FILE *out, int index)
     ch = fgetc( in );
     while( ch != EOF )
     {
+        // Allocating memory
+        code = (char*) malloc( sizeof(char) );
         // Turning into int
         c = (int) ch;
         // Generating the random char
@@ -149,6 +151,8 @@ void binaryToCode(FILE *in, FILE *out, int index)
         fwrite( code, sizeof(char), 1, out );
         // Getting next char
         ch = fgetc( in );
+        // Freeing memory
+        free( code );
     }
     // End of function
     return;
