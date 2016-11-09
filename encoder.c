@@ -133,12 +133,14 @@ void binaryToCode(FILE *in, FILE *out, int index)
     srand(1); 
     // Initializing necessary variables
     int c; 
-    char random;
+    char ch, random;
     char *code;
     // Getting char to read
-    c = (int) fgetc( in );
-    while( c != EOF )
+    ch = fgetc( in );
+    while( ch != EOF )
     {
+        // Turning into int
+        c = (int) ch;
         // Generating the random char
         random = (char) rand()%256;
         // Implanting the bit
@@ -146,7 +148,7 @@ void binaryToCode(FILE *in, FILE *out, int index)
         // Writing into file
         fwrite( code, sizeof(char), 1, out );
         // Getting next char
-        c = (int) fgetc( in );
+        ch = fgetc( in );
     }
     // End of function
     return;
