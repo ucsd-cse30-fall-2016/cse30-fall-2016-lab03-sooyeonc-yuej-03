@@ -48,8 +48,20 @@ int extractBit(char c, int index)
  */
 char decodeChar(char *b)
 {
-    // TODO Implement me!
-    return 'a';
+    // Initializing necessary variables
+    char decoded;
+    int i, num, index;
+    // Going through each char of the given array
+    for( i = 0; i < 6; i++ )
+    {
+        // Getting value and multiplying by corresponding power of 2
+        num = b[ i ] * ( 2^(5 - i) );
+        index = index + num;
+    }
+    // Getting char from MAPPING array
+    decoded = MAPPING[ index ];
+    // Returning resulting char
+    return decoded;
 }
 
 /**
