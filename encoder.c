@@ -132,18 +132,22 @@ void binaryToCode(FILE *in, FILE *out, int index)
     //DO NOT REMOVE OR EDIT THIS LINE OF CODE
     srand(1); 
     // Initializing necessary variables
-    int c, ran;
-    char ch, dom;
+    int c;
+    char ch, random;
     // Getting char to read
-    c = (int) fgetc( in );
-    while( c != EOF )
+    ch = fgetc( in );
+    while( ch != EOF )
     {
+        // Turning into int aka 0 or 1
+        c = (int) ch;
         // Generating the random char
         random = (char) rand()%256;
         // Implanting the bit
-        implantBit( random, c, index );
+        ch = implantBit( random, c, index );       
+        // Writing it to output file
+        fwrite( ch, sizeof(char), 1, out );
         // Getting next char
-        c = (int) fgetc( in );
+        ch = fgetc( in );
     }
     // End of function
     return;
