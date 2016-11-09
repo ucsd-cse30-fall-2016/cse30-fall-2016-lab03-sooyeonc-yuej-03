@@ -55,7 +55,7 @@ char decodeChar(char *b)
     for( i = 0; i < 6; i++ )
     {
         // Getting value and multiplying by corresponding power of 2
-        num = b[ i ] * ( 2^(5 - i) );
+        num = ((int) b[ i ]) * ( 32 >> i );
         index = index + num;
     }
     // Getting char from MAPPING array
