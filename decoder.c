@@ -52,10 +52,10 @@ char decodeChar(char *b)
     char decoded;
     int i, num, index = 0;
     // Going through each char of the given array
-    for( i = 0; i < 6; i++ )
+    for( i = 6; i > 0; i-- )
     {
         // Getting value and multiplying by corresponding power of 2
-        num = ((int) b[ i ]) * ( 32 >> i );
+        num = ((int) b[ i - 1 ]) * ( 1 >> i );
         index = index + num;
     }
     // Getting char from MAPPING array
