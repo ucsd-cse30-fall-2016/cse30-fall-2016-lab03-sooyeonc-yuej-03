@@ -189,7 +189,7 @@ void encodeFile(char* input, char* bin, char* output, int index)
     ascii = fopen( bin, "r+" );
     out = fopen( output, "w" );
     // Encoding the files 
-    //textToBinary( in, ascii ); <--------- causes memory leaks 
+    textToBinary( in, ascii ); //<--------- causes memory leaks 
     binaryToCode( ascii, out, index );
     // Closing files
     fclose( in );
