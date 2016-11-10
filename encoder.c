@@ -181,7 +181,9 @@ void binaryToCode(FILE *in, FILE *out, int index)
 void encodeFile(char* input, char* bin, char* output, int index)
 {
     // Initializing necessary variables
-    FILE *in, *out, *ascii = (FILE*) malloc( sizeof(FILE) );
+    FILE *in;
+    FILE *out;
+    FILE *ascii;
     // Opening files
     in = fopen( input, "r" );
     ascii = fopen( bin, "w" );
