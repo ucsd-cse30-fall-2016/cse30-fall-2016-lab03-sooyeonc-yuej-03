@@ -186,10 +186,10 @@ void encodeFile(char* input, char* bin, char* output, int index)
     FILE *ascii;
     // Opening files
     in = fopen( input, "r" );
-    ascii = fopen( bin, "r+" );
+    ascii = fopen( bin, "w" );
     out = fopen( output, "w" );
     // Encoding the files 
-    textToBinary( in, ascii ); //<--------- causes memory leaks 
+    textToBinary( in, ascii );  //<--------- causes memory leaks 
     binaryToCode( in, out, index );
     // Closing files
     fclose( in );
