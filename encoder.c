@@ -190,7 +190,7 @@ void encodeFile(char* input, char* bin, char* output, int index)
     // Encoding the files 
     textToBinary( in, ascii ); 
     fclose( ascii );
-    fopen( ascii, "r" );
+    ascii = fopen( bin, "r" );
     binaryToCode( ascii, out, index );
     // Closing files
     fclose( in );
