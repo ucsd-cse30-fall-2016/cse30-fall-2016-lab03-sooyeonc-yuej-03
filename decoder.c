@@ -50,7 +50,7 @@ char decodeChar(char *b)
 {
     // Initializing necessary variables
     char decoded, temp;
-    int i, two num, index = 0;
+    int i, two, num, index = 0;
     two = 1;
     // Going through each char of the given array
     for( i = 0; i < 6; i++ )
