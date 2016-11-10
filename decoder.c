@@ -55,11 +55,13 @@ char decodeChar(char *b)
     for( i = 0; i < 6; i++ )
     {
         // Getting value and multiplying by corresponding power of 2
+        temp = (char*) malloc( sizeof(char) );
         *temp = b[ i ];
         if( *temp == '1' )
         {
             index = index + ( 0x01 << i );
         }
+        free( temp );
     }
     // Returning char from MAPPING array
     return MAPPING[ index ];
