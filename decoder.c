@@ -49,7 +49,7 @@ int extractBit(char c, int index)
 char decodeChar(char *b)
 {
     // Initializing necessary variables
-    char *temp = NULL;
+    char *temp;
     int i, total = 0;
     // Going through each char of the given array
     for( i = 0; i < 6; i++ )
