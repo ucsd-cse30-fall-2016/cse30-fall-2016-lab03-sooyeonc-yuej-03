@@ -174,12 +174,12 @@ void decodeFile(char* input, char* bin, char* output, int index)
     out = fopen( output, "w" );
     ascii = fopen( bin, "w" );
     // Writing first time 
-    codeToBinary( in, ascii );
+    codeToBinary( in, ascii, index );
     // Changing permissions
     fclose( ascii );
     fopen( ascii, "r" );
     // Writing second time
-    binaryToText( ascii, out, index );
+    binaryToText( ascii, out );
     // Closing files
     fclose( in );
     fclose( out );
