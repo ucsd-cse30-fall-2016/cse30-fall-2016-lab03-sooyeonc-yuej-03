@@ -83,7 +83,24 @@ char decodeChar(char *b)
 */
 void codeToBinary(FILE *in, FILE *out, int index)
 {
-    // TODO Implement me!
+    // Initializing necessary variables
+    char c, temp;
+    int bit;
+    // Reading file
+    c = fgetc( in );
+    // Getting bit and turning into char
+    bit = extractBit( c, index );
+    if( bit == 0 )
+    {
+        temp = '0';
+    }
+    else
+    {
+        temp = '1';
+    }
+    // Returning to file
+    fwrite( temp, sizeof(char), 1, out );
+    return;
 }
 
 /**
@@ -99,7 +116,28 @@ void codeToBinary(FILE *in, FILE *out, int index)
 */
 void binaryToText(FILE *in, FILE *out)
 {
-    // TODO Implement me!
+    // Initializing necessary variables
+    char c, temp;
+    char *bin;
+    int i;
+    // Reading file
+    c = fgetc( in );
+    // Going through file
+    while( c != EOF )
+    {
+        // Making char array
+        bin = (char*) malloc( sizeof(char)*6 );
+        for( i = 0; i < 6; i++ )
+        {
+            bin[ i ] = c;
+        }
+        // Getting resulting char
+        temp = decodeChar( *bin );
+        // Writing onto file
+        fwrite( temp, sizeof(char), 1, out );
+        // Freeing array
+        free( bin );
+    }
 }
 
 /**
