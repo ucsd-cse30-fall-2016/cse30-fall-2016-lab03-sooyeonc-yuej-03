@@ -49,16 +49,16 @@ int extractBit(char c, int index)
 char decodeChar(char *b)
 {
     // Initializing necessary variables
-    char temp;
-    int i, num, index = 0;
+    char *temp;
+    int i, index = 0;
     // Going through each char of the given array
     for( i = 0; i < 6; i++ )
     {
         // Getting value and multiplying by corresponding power of 2
-        temp = b[ i ];
+        *temp = b[ i ];
         if( temp == '1' )
         {
-            index = index + (0x01 << i );
+            index = index + ( 0x01 << i );
         }
     }
     // Returning char from MAPPING array
