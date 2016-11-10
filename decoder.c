@@ -84,23 +84,32 @@ char decodeChar(char *b)
 void codeToBinary(FILE *in, FILE *out, int index)
 {
     // Initializing necessary variables 
-    char c;
+    char ch;
     char *code;
+    int bit;
     // Reading file
-    c = fgetc( in );
+    ch = fgetc( in );
     // Looping througoh whole file
-    while( c != EOF )
+    while( ch != EOF )
     {
         // Allocating memory
         code = (char*) malloc( sizeof(char) );
-        // Getting bit and turning into char
-        *code = (char) extractBit( c, index );
+        // Getting bit and turning into char '0' or '1'
+        bit = extractBit( ch, index );
+        if( bit == 0 )
+        {
+            *code = '0'
+        }
+        else
+        {
+            *code = '1';
+        }
         // Writing to file 
         fwrite( code, sizeof(char), 1, out );
         // Freeing memory
         free( code );
         // Getting next char
-        c = fgetc( in );
+        ch = fgetc( in );
     }
     // End of method
     return;
@@ -164,6 +173,13 @@ void decodeFile(char* input, char* bin, char* output, int index)
     in = fopen( input, "r" );
     out = fopen( output, "w" );
     ascii = fopen( bin, "w" );
+    // Writing first time 
+    codeToBinary( in, ascii );
+    // Changing permissions
+    fclose( ascii );
+    fopen( ascii, "r" );
+    // Writing second time
+    binaryToText( ascii, out, index );
     // Closing files
     fclose( in );
     fclose( out );
