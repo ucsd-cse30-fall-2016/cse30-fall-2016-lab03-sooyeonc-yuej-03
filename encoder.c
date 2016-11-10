@@ -189,16 +189,12 @@ void encodeFile(char* input, char* bin, char* output, int index)
     ascii = fopen( bin, "w" );
     out = fopen( output, "w" );
     // Encoding the files 
-    textToBinary( in, ascii );
+    //textToBinary( in, ascii ); <--------- causes memory leaks 
     binaryToCode( in, out, index );
     // Closing files
     fclose( in );
     fclose( ascii );
     fclose( out );
-    // Freeing memory
-    free( in );
-    free( out );
-    free( ascii );
     // End of function
     return;
 }
