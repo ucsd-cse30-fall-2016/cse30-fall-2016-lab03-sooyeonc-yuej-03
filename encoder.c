@@ -180,5 +180,19 @@ void binaryToCode(FILE *in, FILE *out, int index)
 */
 void encodeFile(char* input, char* bin, char* output, int index)
 {
-    // TODO Implement me!
+    // Initializing necessary variables
+    FILE *in, *out, *ascii;
+    // Opening files
+    in = fopen( input, "r" );
+    ascii = fopen( bin, "r" );
+    out = fopen( output, "w" );
+    // Encoding the files 
+    textToBinary( in, bin );
+    binaryToCode( in, out );
+    // Closing files
+    fclose( in );
+    fclose( ascii );
+    fclose( out );
+    // End of function
+    return;
 }
