@@ -98,7 +98,7 @@ void codeToBinary(FILE *in, FILE *out, int index)
         bit = extractBit( ch, index );
         if( bit == 0 )
         {
-            *code = '0'
+            *code = '0';
         }
         else
         {
