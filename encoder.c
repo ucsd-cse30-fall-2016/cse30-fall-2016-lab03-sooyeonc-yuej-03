@@ -181,7 +181,7 @@ void binaryToCode(FILE *in, FILE *out, int index)
 void encodeFile(char* input, char* bin, char* output, int index)
 {
     // Initializing necessary variables
-    FILE *in, *out, *ascii;
+    FILE *in, *out, *ascii = (FILE*) malloc( sizeof(FILE) );
     // Opening files
     in = fopen( input, "r" );
     ascii = fopen( bin, "w" );
@@ -193,6 +193,10 @@ void encodeFile(char* input, char* bin, char* output, int index)
     fclose( in );
     fclose( ascii );
     fclose( out );
+    // Freeing memory
+    free( in );
+    free( out );
+    free( ascii );
     // End of function
     return;
 }
