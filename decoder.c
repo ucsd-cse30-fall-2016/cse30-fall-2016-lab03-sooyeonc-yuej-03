@@ -56,7 +56,7 @@ char decodeChar(char *b)
     {
         // Getting value and multiplying by corresponding power of 2
         temp = b[ i - 1 ];
-        if( temp = '0' )
+        if( temp == '0' )
         {
             num = 0;
         }
