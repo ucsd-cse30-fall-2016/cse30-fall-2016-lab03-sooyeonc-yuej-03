@@ -56,15 +56,10 @@ char decodeChar(char *b)
     {
         // Getting value and multiplying by corresponding power of 2
         temp = b[ i ];
-        if( temp == '0' )
+        if( temp == '1' )
         {
-            num = 0;
+            index = index + (0x01 << i );
         }
-        else
-        {
-            num = 1;
-        }
-        index = index + ( num + (2^i) );
     }
     // Returning char from MAPPING array
     return MAPPING[ index ];
