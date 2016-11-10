@@ -177,7 +177,7 @@ void decodeFile(char* input, char* bin, char* output, int index)
     codeToBinary( in, ascii, index );
     // Changing permissions
     fclose( ascii );
-    fopen( ascii, "r" );
+    fopen( bin, "r" );
     // Writing second time
     binaryToText( ascii, out );
     // Closing files
