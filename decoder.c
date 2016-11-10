@@ -119,7 +119,8 @@ void binaryToText(FILE *in, FILE *out)
 {
     // Initializing necessary variables
     char c;
-    char *temp, *bin = NULL;
+    char *temp = NULL;
+    char *bin = NULL;
     int i;
     // Reading file
     c = fgetc( in );
