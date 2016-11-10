@@ -59,7 +59,7 @@ char decodeChar(char *b)
         *temp = b[ i ];
         if( *temp == '1' )
         {
-            total = total + ( 1 << i );
+            total = total + ( 32 >> i );
         }
         free( temp );
     }
