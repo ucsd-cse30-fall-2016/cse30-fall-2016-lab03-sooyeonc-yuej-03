@@ -142,8 +142,6 @@ void binaryToText(FILE *in, FILE *out)
         fwrite( bin, sizeof(char), 1, out );
         // Freeing memory
         free( bin );
-        // Getting next char
-        c = fgetc( in );
     }
 }
 
@@ -160,5 +158,16 @@ void binaryToText(FILE *in, FILE *out)
  */
 void decodeFile(char* input, char* bin, char* output, int index)
 {
-    // TODO Implement me!
+    // Initializing necessary variables
+    FILE *in, *out, *ascii;
+    // Opening files
+    in = fopen( input, "r" );
+    out = fopen( output, "w" );
+    ascii = fopen( bin, "w" );
+    // Closing files
+    fclose( in );
+    fclose( out );
+    fclose( ascii );
+    // End of method
+    return;
 }
