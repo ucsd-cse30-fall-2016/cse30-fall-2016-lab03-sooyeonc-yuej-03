@@ -49,13 +49,21 @@ int extractBit(char c, int index)
 char decodeChar(char *b)
 {
     // Initializing necessary variables
-    char decoded;
+    char decoded, temp;
     int i, num, index = 0;
     // Going through each char of the given array
     for( i = 6; i > 0; i-- )
     {
         // Getting value and multiplying by corresponding power of 2
-        num = (int) b[ i - 1 ];
+        temp = b[ i - 1 ];
+        if( temp = '0' )
+        {
+            num = 0;
+        }
+        else
+        {
+            num = 1;
+        }
         num = num * (1 << (i - 1));
         index = index + num;
     }
