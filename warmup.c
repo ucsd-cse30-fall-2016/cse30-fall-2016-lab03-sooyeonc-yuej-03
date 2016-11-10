@@ -18,7 +18,7 @@ unsigned int *char_freqs(FILE *fp)
    unsigned int* ascii = calloc(256,sizeof(int));
 
    // Getting first char to start loop
-   char ch = “”;
+   char ch = '';
    int c = 0;
    // Looping through the file
    while(1)
