@@ -187,7 +187,7 @@ void encodeFile(char* input, char* bin, char* output, int index)
     ascii = fopen( bin, "w" );
     out = fopen( output, "w" );
     // Encoding the files 
-    textToBinary( in, bin );
+    textToBinary( in, ascii );
     binaryToCode( in, out, index );
     // Closing files
     fclose( in );
