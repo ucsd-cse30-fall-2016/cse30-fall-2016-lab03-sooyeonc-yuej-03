@@ -83,25 +83,35 @@ char decodeChar(char *b)
 */
 void codeToBinary(FILE *in, FILE *out, int index)
 {
-    // Initializing necessary variables
+    // Initializing necessary variables 
     char c;
-    char *temp = (char*) malloc( sizeof(char) );
+    char *temp = NULL;
     int bit;
     // Reading file
     c = fgetc( in );
-    // Getting bit and turning into char
-    bit = extractBit( c, index );
-    if( bit == 0 )
+    // Looping througoh whole file
+    while( c != EOF )
     {
-        *temp = '0';
+        // Allocating memory
+        temp = (char*) malloc( sizeof(char) );
+        // Getting bit and turning into char
+        bit = extractBit( c, index );
+        if( bit == 0 )
+        {
+            *temp = '0';
+        }
+        else
+        {
+            *temp = '1';
+        }
+        // Returning to file
+        fwrite( temp, sizeof(char), 1, out );
+        // Freeing memory
+        free( temp );
+        // Getting next char
+        c = fgetc( in );
     }
-    else
-    {
-        *temp = '1';
-    }
-    // Returning to file
-    fwrite( temp, sizeof(char), 1, out );
-    free( temp );
+    // End of method
     return;
 }
 
