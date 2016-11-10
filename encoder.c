@@ -188,12 +188,13 @@ void encodeFile(char* input, char* bin, char* output, int index)
     ascii = fopen( bin, "w" );
     out = fopen( output, "w" );
     // Encoding the files 
-    //textToBinary( in, ascii ); // line causing the memory leaks
+    textToBinary( in, ascii ); 
     fclose( ascii );
-    binaryToCode( in, out, index );
+    fopen( ascii, "r" );
+    binaryToCode( ascii, out, index );
     // Closing files
     fclose( in );
-    //fclose( ascii );
+    fclose( ascii );
     fclose( out );
     // End of function
     return;
