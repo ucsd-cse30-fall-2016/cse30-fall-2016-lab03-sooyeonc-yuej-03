@@ -160,8 +160,7 @@ void binaryToCode(FILE *in, FILE *out, int index)
         // Freeing memory
         free( code );
         // Getting next char
-        ch = fgetc( in );
-        
+        ch = fgetc( in ); 
     }
     // End of function
     return;
