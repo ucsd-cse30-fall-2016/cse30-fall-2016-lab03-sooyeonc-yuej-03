@@ -50,8 +50,7 @@ char decodeChar(char *b)
 {
     // Initializing necessary variables
     char temp;
-    int i, two, num, index = 0;
-    two = 1;
+    int i, num, index = 0;
     // Going through each char of the given array
     for( i = 0; i < 6; i++ )
     {
@@ -63,10 +62,9 @@ char decodeChar(char *b)
         }
         else
         {
-            num = two;
+            num = 1;
         }
-        index = index + num;
-        two = two * 2;
+        index = index + ( num + (2^i) );
     }
     // Returning char from MAPPING array
     return MAPPING[ index ];
