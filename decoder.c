@@ -50,7 +50,7 @@ char decodeChar(char *b)
 {
     // Initializing necessary variables
     char *temp = NULL;
-    int i, index = 0;
+    int i, total = 0;
     // Going through each char of the given array
     for( i = 0; i < 6; i++ )
     {
@@ -59,12 +59,12 @@ char decodeChar(char *b)
         *temp = b[ i ];
         if( *temp == '1' )
         {
-            index = index + ( 0x01 << i );
+            total = total + ( 2^i );
         }
         free( temp );
     }
     // Returning char from MAPPING array
-    return MAPPING[ index ];
+    return MAPPING[ total ];
 }
 
 /**
