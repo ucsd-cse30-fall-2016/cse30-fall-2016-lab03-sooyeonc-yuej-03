@@ -84,7 +84,8 @@ char decodeChar(char *b)
 void codeToBinary(FILE *in, FILE *out, int index)
 {
     // Initializing necessary variables
-    char c, temp;
+    char c;
+    char *temp;
     int bit;
     // Reading file
     c = fgetc( in );
@@ -92,11 +93,11 @@ void codeToBinary(FILE *in, FILE *out, int index)
     bit = extractBit( c, index );
     if( bit == 0 )
     {
-        temp = '0';
+        *temp = '0';
     }
     else
     {
-        temp = '1';
+        *temp = '1';
     }
     // Returning to file
     fwrite( temp, sizeof(char), 1, out );
@@ -132,7 +133,7 @@ void binaryToText(FILE *in, FILE *out)
             bin[ i ] = c;
         }
         // Getting resulting char
-        temp = decodeChar( *bin );
+        temp = decodeChar( bin );
         // Writing onto file
         fwrite( temp, sizeof(char), 1, out );
         // Freeing array
