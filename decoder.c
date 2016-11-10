@@ -85,7 +85,7 @@ void codeToBinary(FILE *in, FILE *out, int index)
 {
     // Initializing necessary variables
     char c;
-    char *temp = NULL;
+    char *temp = (char*) malloc( sizeof(char) );
     int bit;
     // Reading file
     c = fgetc( in );
@@ -101,6 +101,7 @@ void codeToBinary(FILE *in, FILE *out, int index)
     }
     // Returning to file
     fwrite( temp, sizeof(char), 1, out );
+    free( temp );
     return;
 }
 
@@ -127,8 +128,10 @@ void binaryToText(FILE *in, FILE *out)
     // Going through file
     while( c != EOF )
     {
-        // Making char array
+        // Allocating memory
         bin = (char*) malloc( sizeof(char)*6 );
+        temp = (char*) malloc( sizeof(char) );
+        // Making the 6-char array
         for( i = 0; i < 6; i++ )
         {
             bin[ i ] = c;
@@ -137,8 +140,9 @@ void binaryToText(FILE *in, FILE *out)
         *temp = decodeChar( bin );
         // Writing onto file
         fwrite( temp, sizeof(char), 1, out );
-        // Freeing array
+        // Freeing memory
         free( bin );
+        free( temp );
     }
 }
 
