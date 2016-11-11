@@ -17,7 +17,7 @@ unsigned int *char_freqs(FILE *fp)
    // Making array
    unsigned int* ascii = calloc(256,sizeof(int));
 
-   // Getting first char to start loop
+   // Making variables
    char ch = '';
    int c = 0;
    // Looping through the file
