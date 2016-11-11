@@ -26,7 +26,7 @@
 int extractBit(char c, int index)
 {
     // Initializing necessary variables
-    int ch, i;
+    int ch, i = 0;
     // Getting the binary version of the char
     ch = (int) c;
     // Shifting ch as necessary to get wanted index
@@ -49,7 +49,7 @@ int extractBit(char c, int index)
 char decodeChar(char *b)
 {
     // Initializing necessary variables
-    char *temp;
+    char *temp = NULL;
     int i, total = 0;
     // Going through each char of the given array
     for( i = 0; i < 6; i++ )
@@ -83,35 +83,35 @@ char decodeChar(char *b)
 */
 void codeToBinary(FILE *in, FILE *out, int index)
 {
-    // Initializing necessary variables 
-    char ch;
+    // Initializing necessary variables
     int bit;
-    char *code = NULL;
-    // Reading file
-    ch = fgetc( in );
-    // Looping through whole file
+    char ch;
+    char *ptr = NULL;
+    // Getting first char
+    ch = fgetc( in  );
     while( ch != EOF )
     {
+        // Getting bit 
+        bit = ch.extractBit( ch, index );
         // Allocating memory
-        code = (char*) malloc( sizeof(char) );
-        // Getting bit to write
-        bit = extractBit( ch, index );
+        ptr = (char*) malloc( sizeof(char) );
+        // Getting necessary char '0' or '1'
         if( bit == 0 )
         {
-            *code = '0';
+            *ptr = '0';
         }
         else
         {
-            *code = '1';
+            *ptr = '1';
         }
-        // Writing to file 
-        fwrite( code, sizeof(char), 1, out );
+        // Writing to output file 
+        fwrite( ptr, sizeof(char), 1, out );
+        // Freeing memory
+        free( ptr );
         // Getting next char
         ch = fgetc( in );
-        // Freeing memory
-        free( code );
     }
-    // End of method
+    // End of file
     return;
 }
 
@@ -129,9 +129,9 @@ void codeToBinary(FILE *in, FILE *out, int index)
 void binaryToText(FILE *in, FILE *out)
 {
     // Initializing necessary variables
-    char c;
+    char c = ' ';
     char *bin = NULL;
-    int i;
+    int i = 0;
     // Reading file
     c = fgetc( in );
     // Going through file
