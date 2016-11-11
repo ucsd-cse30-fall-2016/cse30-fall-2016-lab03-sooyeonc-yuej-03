@@ -92,7 +92,7 @@ void codeToBinary(FILE *in, FILE *out, int index)
     while( ch != EOF )
     {
         // Getting bit 
-        bit = ch.extractBit( ch, index );
+        bit = extractBit( ch, index );
         // Allocating memory
         ptr = (char*) malloc( sizeof(char) );
         // Getting necessary char '0' or '1'
