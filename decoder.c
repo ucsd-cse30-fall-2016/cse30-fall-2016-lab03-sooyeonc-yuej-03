@@ -85,29 +85,28 @@ void codeToBinary(FILE *in, FILE *out, int index)
 {
     // Initializing necessary variables 
     char ch;
-    //char *code = NULL;
-    int *bit;
+    int *bit = NULL;
     // Reading file
     ch = fgetc( in );
     // Looping through whole file
     while( ch != EOF )
     {
-        // Getting bit and char verison aka '0' or '1'
-        *bit = extractBit( ch, index );
         // Allocating memory
-        //code = (char*) malloc( sizeof(char) );
+        bit = (int*) malloc( sizeof(int) );
+        // Getting bit to write
+        *bit = extractBit( ch, index );
         if( *bit == 0 )
         {
-            *bit == (int) '0';
+            *bit = (int) '0';
         }
         else
         {
-            *bit == (int) '1';
+            *bit = (int) '1';
         }
         // Writing to file 
         fwrite( bit, sizeof(int), 1, out );
         // Freeing memory
-        //free( code );
+        free( bit );
         // Getting next char
         ch = fgetc( in );
     }
