@@ -84,8 +84,8 @@ char decodeChar(char *b)
 void codeToBinary(FILE *in, FILE *out, int index)
 {
     // Initializing necessary variables
-    int bit;
-    char ch;
+    int bit = 0;
+    char ch = ' ';
     char *ptr = NULL;
     // Getting first char
     ch = fgetc( in  );
