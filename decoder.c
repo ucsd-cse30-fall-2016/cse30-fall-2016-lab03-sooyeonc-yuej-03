@@ -96,16 +96,16 @@ void codeToBinary(FILE *in, FILE *out, int index)
         bit = extractBit( ch, index );
         // Allocating memory
         code = (char*) malloc( sizeof(char) );
-        if( bit == 0 )
+        /*if( bit == 0 )
         {
             *code = '0';
         }
         else
         {
             *code = '1';
-        }
+        }*/
         // Writing to file 
-        fwrite( code, sizeof(char), 1, out );
+        fwrite( bit, sizeof(char), 1, out );
         // Freeing memory
         free( code );
         // Getting next char
