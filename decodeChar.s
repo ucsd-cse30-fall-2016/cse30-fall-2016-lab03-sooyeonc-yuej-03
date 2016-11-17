@@ -30,11 +30,11 @@ loop:
     @ making r0 into a char pointer
     MOV r0, #1
     BL malloc 
-    @ getting char in array to r1
+    @ getting char in array to r0
     LDR r0, [r1, r3]
-    @ check r1 vs '1'
+    @ check r0 vs '1'
     CMP r0, #49
-    @ skip if r1 != '1' aka do if r1 = '1'
+    @ skip if r0 != '1' 
     BNE skip
     @ get 32 >> loopCount
     MOV r5, #32
@@ -42,17 +42,18 @@ loop:
     @ total = total + r5
     ADD r4, r4, r5
 skip:
-    @ incrementing loopCount
-    ADD r3, r3, #1
     @ freeing the pointer
     BL free
+    @ incrementing loopCount
+    ADD r3, r3, #1
     @ check loop again
     B loop
 end:    
     @ r6 = MAPPING array
     LDR r6, =MAPPING
     @ MAPPING[ total ]
-    LDR r0, [r6, r5]
+    LDR r2, [r6, r5]
+    MOV r0, r2
     
     @-----------------------
 return:
