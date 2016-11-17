@@ -22,14 +22,14 @@ decodeChar:
     MOV r4, #0
     @ moving r0 to r1 
     MOV r1, r0
-    MOV r0, #1
-    @ making r0 into a char pointer
-    BL malloc 
-loop: 
+loop:     
     @ check r3 vs 6
     CMP r3, #6
     @ branching out if r3 >= 6
     BGE end
+    @ making r0 into a char pointer
+    MOV r0, #1
+    BL malloc 
     @ getting char in array to r1
     LDR r0, [r1, r3]
     @ check r1 vs '1'
