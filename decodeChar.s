@@ -28,17 +28,18 @@ decodeChar:
     BGE loop
     B end
     
-loop: @ getting char in array to r1
+loop: 
+    @ getting char in array to r1
     LDR r1, [r0, r3]
     @ check r1 vs '1'
     CMP r1, #49
     @ skip if r1 != '1' aka do if r1 = '1'
     JE increase
-    B end;
+    B end
     
 back:
 
-    JMP loop;    
+    JMP loop  
 
 increase:
     @ Get 32 >> loopCount
@@ -51,6 +52,7 @@ increase:
 end:   
     @ Moving return value
     MOV r0, r5
+    
     @-----------------------
 return:
     @ restore caller's registers
