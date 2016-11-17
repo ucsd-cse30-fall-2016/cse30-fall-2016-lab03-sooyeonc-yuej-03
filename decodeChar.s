@@ -44,6 +44,8 @@ skip:
 end:    
     @ r6 = MAPPING array
     LDR r6, =MAPPING
+    @ r5 = r5 times 4
+    LSL r5, r5, #2
     @ MAPPING[ total ]
     LDR r1, [r6, r5]
     
