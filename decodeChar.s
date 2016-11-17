@@ -20,25 +20,21 @@ decodeChar:
     @ r3 and r4 = 0 (loopCount and total)
     MOV r3, #0
     MOV r4, #0
-
-    @ check r3 vs 6
-    CMP r3, #6
     @ skip if r3 >= 6 aka do if r3 < 6
-    BLT loop
-    B end
+    B loop
     
 loop: 
+    @ check r3 vs 6
+    CMP r3, #6
+    BGE end
     @ getting char in array to r1
     LDR r1, [r0, r3]
     @ check r1 vs '1'
     CMP r1, #49
     @ skip if r1 != '1' aka do if r1 = '1'
     BEQ increase
-    B end
-    
-@back:
-
-    @JMP loop  
+    @ incrementing loopCount
+    ADD r3, r3, #1
 
 increase:
     @ Get 32 >> loopCount
@@ -51,8 +47,8 @@ increase:
 end:    
     @ r6 = MAPPING array
     LDR r6, =MAPPING
-    @ Moving return value
-    MOV r0, [r6, r5]
+    @ MAPPING[ total ]
+    LDR r1, [r6, r5]
     
     @-----------------------
 return:
