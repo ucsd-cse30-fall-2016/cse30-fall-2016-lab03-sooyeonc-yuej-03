@@ -33,12 +33,12 @@ loop: @ getting char in array to r1
     @ check r1 vs '1'
     CMP r1, #49
     @ skip if r1 != '1' aka do if r1 = '1'
-    BE increase
+    JE increase
     B end;
     
 back:
 
-    B loop;    
+    JMP loop;    
 
 increase:
     @ Get 32 >> loopCount
@@ -46,7 +46,7 @@ increase:
     LSR r5, r5, r3
     @ total = total + r5
     ADD r4, r4, r5
-    B back
+    JMP back
 
 end:   
     @ Moving return value
