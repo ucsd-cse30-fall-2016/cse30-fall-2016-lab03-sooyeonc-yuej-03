@@ -26,22 +26,31 @@ decodeChar:
     CMP r3, #6
     @ skip if r3 >= 6 aka do if r3 < 6
     BGE loop
-    @ Moving return value
-    MOV r0, r5
-loop: 
-    @ getting char in array to r1
+    B end
+    
+loop: @ getting char in array to r1
     LDR r1, [r0, r3]
     @ check r1 vs '1'
     CMP r1, #49
     @ skip if r1 != '1' aka do if r1 = '1'
     BE increase
+    B end;
+    
+back:
+
+    B loop;    
+
 increase:
     @ Get 32 >> loopCount
     MOV r5, #32
     LSR r5, r5, r3
     @ total = total + r5
     ADD r4, r4, r5
+    B back
 
+end:   
+    @ Moving return value
+    MOV r0, r5
     @-----------------------
 return:
     @ restore caller's registers
