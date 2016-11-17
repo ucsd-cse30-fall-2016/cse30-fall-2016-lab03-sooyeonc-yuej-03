@@ -21,7 +21,7 @@ decodeChar:
     MOV r3, #0
     MOV r4, #0
     @ moving r0 to r1 
-    LDR r1, r0
+    MOV r1, r0
 loop:     
     @ check r3 vs 6
     CMP r3, #6
