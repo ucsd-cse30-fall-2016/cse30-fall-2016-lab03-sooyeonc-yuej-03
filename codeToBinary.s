@@ -52,12 +52,12 @@ loop:
     BEQ assignZero
     @ assign 1
     MOV r10, #49
-    STRB r4, [r10]
+    STRB r10, [r4]
     B skipAssignZero
 assignZero:
     @ assign 0
     MOV r10, #48
-    STRB r4, [r10]
+    STRB r10, [r4]
 skipAssignZero:
     @ move pointer to r0
     MOV r0, r4
