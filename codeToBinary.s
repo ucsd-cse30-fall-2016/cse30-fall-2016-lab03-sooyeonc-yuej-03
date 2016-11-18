@@ -43,7 +43,7 @@ loop:
     CMP r4, #-1
     BLE end
     @ move char to r0
-    MOV r0, r4
+    LDRB r0, [r4]
     @ index at r1
     MOV r1, r7
     BL extractBit
