@@ -56,7 +56,7 @@ loop:
     B skipAssignZero
 assignZero:
     @ assign 0
-    MOV r10 #48
+    MOV r10, #48
     STRB r4, r10
 skipAssignZero:
     @ move pointer to r0
@@ -64,7 +64,7 @@ skipAssignZero:
     @ moving other necessary values for fwrite
     MOV r1, #1
     MOV r2, #1
-    MOV r3, r5
+    MOV r3, r6
     BL fwrite
     @ back to top of loop
     B loop
