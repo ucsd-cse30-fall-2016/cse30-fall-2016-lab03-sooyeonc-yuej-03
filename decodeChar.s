@@ -32,7 +32,7 @@ loop:
     @MOV r0, #1
     @BL malloc 
     @ getting char in array to r0
-    LDR r0, [r7, r4]
+    LDRB r0, [r7, r4]
     @ check r0 vs '1'
     CMP r0, #49
     @ skip if r0 != '1' aka continue if r0 == '1'
@@ -55,7 +55,7 @@ end:
     @ r0 is MAPPING array
     LDR r0, =MAPPING
     @ r0 is MAPPING[ total ]
-    LDR r0, [r0, r5]
+    LDRB r0, [r0, r5]
     
     @-----------------------
 return:
