@@ -52,7 +52,7 @@ end:
     @ r6 = MAPPING array
     LDR r6, =MAPPING
     @ MAPPING[ total ]
-    MOV r0, [r6, r5]
+    LDR r0, [r6, r5]
     
     @-----------------------
 return:
