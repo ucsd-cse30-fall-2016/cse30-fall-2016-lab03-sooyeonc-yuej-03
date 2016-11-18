@@ -17,37 +17,37 @@ decodeChar:
 
     @-----------------------
     
-    @ r3 and r4 = 0 (loopCount and total)
-    MOV r3, #0
+    @ r4 and r5 = 0 (loopCount and total)
     MOV r4, #0
+    MOV r5, #0
     @ moving r0 aka char *b to r1 
-    MOV r1, r0
+    MOV r8, r0
     
 loop:
-    @ check r3 vs 6
-    CMP r3, #6
-    @ branching out if r3 >= 6 aka continue if r3 < 6
+    @ check r4 vs 6
+    CMP r4, #6
+    @ branching out if r4 >= 6 aka continue if r4 < 6
     BGE end
     @ making r0 into a char pointer
     @MOV r0, #1
     @BL malloc 
     @ getting char in array to r0
-    LDR r0, [r1, r3]
+    LDR r0, [r8, r4]
     @ check r0 vs '1'
-    CMP r0, #48
+    CMP r0, #49
     @ skip if r0 != '1' aka continue if r0 == '1'
     BNE skip
     @ get 32 >> loopCount
-    MOV r5, #32
-    LSR r5, r5, r3
+    MOV r6, #32
+    LSR r6, r6, r4
     @ total = total + r5
-    ADD r4, r4, r5
+    ADD r5, r5, r6
     
 skip:
     @ freeing the pointer
     @BL free
     @ incrementing loopCount
-    ADD r3, r3, #1
+    ADD r4, r4, #1
     @ check loop again
     B loop
     
