@@ -37,13 +37,13 @@ loop:
     @ get input file (once more)
     MOV r0, r5
     BL fgetc
-    @ mov char to r4
-    MOV r4, r0
+    @ mov char to r9
+    MOV r9, r0
     @ check EOF
-    CMP r4, #-1
+    CMP r9, #-1
     BLE end
     @ move char to r0
-    LDRB r0, [r4]
+    LDRB r0, [r9]
     @ index at r1
     MOV r1, r7
     BL extractBit
