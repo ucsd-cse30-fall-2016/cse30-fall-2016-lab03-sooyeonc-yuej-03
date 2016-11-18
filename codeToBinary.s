@@ -41,7 +41,7 @@ loop:
     MOV r8, r0
     @ check EOF
     CMP r8, #0
-    BE end
+    BEQ end
     @ move char to r0
     MOV r0, r8
     @ index at r1
@@ -49,7 +49,7 @@ loop:
     BL extractBit
     @ compare bit to '0'
     CMP r0, #48
-    BE assignZero
+    BEQ assignZero
 assignOne:
     @ assign 1
     MOV r9, #49
