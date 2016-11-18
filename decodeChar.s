@@ -37,7 +37,8 @@ loop:
     @ skip if r0 != '1' aka continue if r0 == '1'
     BNE skip
     @ get 32 >> loopCount
-    LSR r5, #32, r3
+    MOV r5, #32
+    LSR r5, r5, r3
     @ total = total + r5
     ADD r4, r4, r5
 skip:
