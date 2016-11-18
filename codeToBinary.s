@@ -50,12 +50,18 @@ loop:
     @ compare bit to '0'
     CMP r0, #48
     BEQ assignZero
+    
 assignOne:
     @ assign 1
     MOV r9, #49
+    B skipAssignZero
+    
 assignZero:
     @ assign 0
     MOV r9, #48
+
+SkipAssignZero:
+
     @ move pointer to r9
     MOV r0, r9
     @ moving other necessary values for fwrite
@@ -65,6 +71,7 @@ assignZero:
     BL fwrite
     @ back to top of loop
     B loop
+    
 end:
     MOV r0, r9
     BL free
