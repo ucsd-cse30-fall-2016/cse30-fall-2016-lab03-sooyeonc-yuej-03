@@ -20,12 +20,12 @@ decodeChar:
     @ r3 and r4 = 0 (loopCount and total)
     MOV r3, #0
     MOV r4, #0
-    @ moving r0 to r1 
+    @ moving r0 aka char *b to r1 
     MOV r1, r0
-loop:     
+loop:
     @ check r3 vs 6
     CMP r3, #6
-    @ branching out if r3 >= 6
+    @ branching out if r3 >= 6 aka continue if r3 < 6
     BGE end
     @ making r0 into a char pointer
     MOV r0, #1
@@ -34,7 +34,7 @@ loop:
     LDR r0, [r1, r3]
     @ check r0 vs '1'
     CMP r0, #49
-    @ skip if r0 != '1' 
+    @ skip if r0 != '1' aka continue if r0 == '1'
     BNE skip
     @ get 32 >> loopCount
     MOV r5, #32
@@ -52,8 +52,7 @@ end:
     @ r6 = MAPPING array
     LDR r6, =MAPPING
     @ MAPPING[ total ]
-    LDR r2, [r6, r5]
-    MOV r0, r2
+    MOV r0, [r6, r5]
     
     @-----------------------
 return:
