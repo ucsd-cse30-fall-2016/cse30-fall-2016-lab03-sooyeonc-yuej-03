@@ -28,8 +28,8 @@ loop:
     @ branching out if r3 >= 6 aka continue if r3 < 6
     BGE end
     @ making r0 into a char pointer
-    MOV r0, #1
-    BL malloc 
+    @MOV r0, #1
+    @BL malloc 
     @ getting char in array to r0
     LDR r0, [r1, r3]
     @ check r0 vs '1'
@@ -37,13 +37,12 @@ loop:
     @ skip if r0 != '1' aka continue if r0 == '1'
     BNE skip
     @ get 32 >> loopCount
-    MOV r5, #32
-    LSR r5, r5, r3
+    LSR r5, #32, r3
     @ total = total + r5
     ADD r4, r4, r5
 skip:
     @ freeing the pointer
-    BL free
+    @BL free
     @ incrementing loopCount
     ADD r3, r3, #1
     @ check loop again
