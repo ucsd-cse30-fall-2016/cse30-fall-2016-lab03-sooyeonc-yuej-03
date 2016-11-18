@@ -15,7 +15,6 @@ binaryToText:
     @ Save caller's registers on the stack
     push {r4-r11, ip, lr}
 
-    @ YOUR CODE GOES HERE
     @-----------------------
     
    MOV r4, r0 @r4 stores in file
@@ -29,7 +28,7 @@ binaryToText:
 while:
    CMP r6, #-1 @check EOF
    BLE end
-   MOV r0, #6 @malloc needs 4x6
+   MOV r0, #6 
    BL malloc
    MOV r7, r0 @r7 stores bin's address
    MOV r8, #0
@@ -53,7 +52,7 @@ back:
    BL free
    B while
    
-loop: STR r6, [r7,r8]
+loop: STR r6, [r7, r8]
    MOV r0, r4
    BL fgetc
    MOV r6, r0
