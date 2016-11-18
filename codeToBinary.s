@@ -40,7 +40,7 @@ loop:
     @ mov char to r4
     MOV r4, r0
     @ check EOF
-    CMP r4, #0
+    CMP r4, #-1
     BEQ end
     @ move char to r0
     MOV r0, r4
