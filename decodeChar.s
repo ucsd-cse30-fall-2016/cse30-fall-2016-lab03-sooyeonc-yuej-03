@@ -49,10 +49,10 @@ skip:
     @ check loop again
     B loop
 end:    
-    @ r6 = MAPPING array
-    LDR r6, =MAPPING
-    @ MAPPING[ total ]
-    LDR r0, [r6, r5]
+    @ r0 is MAPPING array
+    LDR r0, =MAPPING
+    @ r0 is MAPPING[ total ]
+    LDR r0, [r0, r5]
     
     @-----------------------
 return:
