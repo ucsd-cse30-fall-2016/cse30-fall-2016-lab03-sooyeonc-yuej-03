@@ -43,12 +43,12 @@ loop:
     CMP r9, #-1
     BLE end
     @ move char to r0
-    LDRB r0, [r9]
+    MOV r0, r9
     @ index at r1
     MOV r1, r7
     BL extractBit
     @ compare bit to '0'
-    CMP r0, #48
+    CMP r0, #0
     BEQ assignZero
     @ assign 1
     MOV r10, #49
