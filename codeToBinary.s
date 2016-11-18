@@ -51,11 +51,13 @@ loop:
     CMP r0, #48
     BEQ assignZero
     @ assign 1
-    STRB r4, #49
+    MOV r10, #49
+    STRB r4, r10
     B skipAssignZero
 assignZero:
     @ assign 0
-    STRB r4, #48
+    MOV r10 #48
+    STRB r4, r10
 skipAssignZero:
     @ move pointer to r0
     MOV r0, r4
