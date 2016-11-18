@@ -51,7 +51,7 @@ loop:
     CMP r0, #48
     BEQ assignZero
     @ assign 1
-    MOV r9, #49
+    MOV r4, #49
     B skipAssignZero
 assignZero:
     @ assign 0
