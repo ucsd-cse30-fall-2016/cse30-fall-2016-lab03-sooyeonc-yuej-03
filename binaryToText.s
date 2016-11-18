@@ -28,7 +28,7 @@ binaryToText:
 
 while:
    CMP r6, #-1 @check EOF
-   BEQ end
+   BLE end
    MOV r0, #24 @malloc needs 4x6
    BL malloc
    MOV r7, r0 @r7 stores bin
