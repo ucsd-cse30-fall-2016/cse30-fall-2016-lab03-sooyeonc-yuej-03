@@ -22,6 +22,7 @@ decodeChar:
     MOV r4, #0
     @ moving r0 aka char *b to r1 
     MOV r1, r0
+    
 loop:
     @ check r3 vs 6
     CMP r3, #6
@@ -41,6 +42,7 @@ loop:
     LSR r5, r5, r3
     @ total = total + r5
     ADD r4, r4, r5
+    
 skip:
     @ freeing the pointer
     @BL free
@@ -48,6 +50,7 @@ skip:
     ADD r3, r3, #1
     @ check loop again
     B loop
+    
 end:    
     @ r0 is MAPPING array
     LDR r0, =MAPPING
