@@ -15,7 +15,6 @@ decodeFile:
     @ Save caller's registers on the stack
     push {r4-r11, ip, lr}
 
-    @ YOUR CODE GOES HERE
     @-----------------------
     
     @ r4 is bin
@@ -68,6 +67,31 @@ decodeFile:
     @ 'r' is r1
     MOV r1, #114
     BL fopen
+    
+    @ bin file is r8
+    MOV r8, r0
+    
+    @ open output file
+    @ output char array is r0
+    MOV r0, r5
+    @ 'w' aka write is r1
+    MOV r1, #119
+    BL fopen
+    
+    @ binaryToText( bin, output )
+    @ output is r1
+    MOV r1, r0
+    @ bin is r0
+    MOV r0, r8
+    BL binaryToText
+    
+    @ fclose bin file
+    MOV r8, r0
+    BL fclose
+    
+    @ fclose input file
+    MOV r0, r8
+    BL fclose
 
     @-----------------------
 return:
