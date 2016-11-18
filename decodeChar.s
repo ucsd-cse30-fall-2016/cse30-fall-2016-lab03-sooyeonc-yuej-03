@@ -21,7 +21,7 @@ decodeChar:
     MOV r4, #0
     MOV r5, #0
     @ moving r0 aka char *b to r1 
-    MOV r8, r0
+    MOV r7, r0
     
 loop:
     @ check r4 vs 6
@@ -32,7 +32,7 @@ loop:
     @MOV r0, #1
     @BL malloc 
     @ getting char in array to r0
-    LDR r0, [r8, r4]
+    LDR r0, [r7, r4]
     @ check r0 vs '1'
     CMP r0, #49
     @ skip if r0 != '1' aka continue if r0 == '1'
