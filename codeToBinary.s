@@ -41,7 +41,7 @@ loop:
     MOV r4, r0
     @ check EOF
     CMP r4, #-1
-    BEQ end
+    BLE end
     @ move char to r0
     MOV r0, r4
     @ index at r1
