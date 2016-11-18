@@ -34,7 +34,7 @@ loop:
     @ getting char in array to r0
     LDR r0, [r1, r3]
     @ check r0 vs '1'
-    CMP r0, #49
+    CMP r0, #48
     @ skip if r0 != '1' aka continue if r0 == '1'
     BNE skip
     @ get 32 >> loopCount
