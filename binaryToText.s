@@ -41,7 +41,7 @@ back:
    MOV r0, r7
    BL decodeChar
    
-   STR r0, [r7]
+   STRB r0, [r7]
    MOV r7, r0
    MOV r1, #1
    MOV r2, #1
@@ -52,7 +52,7 @@ back:
    BL free
    B while
    
-loop: STR r6, [r7, r8]
+loop: STRB r6, [r7, r8]
    MOV r0, r4
    BL fgetc
    MOV r6, r0
