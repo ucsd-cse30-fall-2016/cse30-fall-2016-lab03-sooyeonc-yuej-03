@@ -23,16 +23,18 @@ binaryToText:
    MOV r7, #0 @bin
    
    BL fgetc @ now c is at r0
-   MOV r6, r0
+   MOV r6, r0 @move char c back to r6
+   
+   MOV r0, #6 @start mallocing
+   BL malloc
+   MOV r7, r0 @r7 stores bin's address
+
 
 while:
    CMP r6, #-1 @check EOF
    BLE end
-   MOV r0, #6 
-   BL malloc
-   MOV r7, r0 @r7 stores bin's address
-   MOV r8, #0
-   
+
+   MOV r8, #0   
    CMP r8, #5
    BLE loop
    
@@ -45,11 +47,9 @@ back:
    MOV r0, r7
    MOV r1, #1
    MOV r2, #1
-   MOV r3, r6
+   MOV r3, r5
    BL fwrite
    
-   MOV r0, r7
-   BL free
    B while
    
 loop: STRB r6, [r7, r8]
@@ -62,7 +62,8 @@ loop: STRB r6, [r7, r8]
    B back
    
 end:
-
+   MOV r0, r7
+   BL free
     @-----------------------
 return:
     @ restore caller's registers
