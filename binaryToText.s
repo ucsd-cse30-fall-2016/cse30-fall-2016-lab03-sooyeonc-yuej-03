@@ -42,7 +42,7 @@ back:
    BL decodeChar
    
    STRB r0, [r7]
-   MOV r7, r0
+   MOV r0, r7
    MOV r1, #1
    MOV r2, #1
    MOV r3, r6
