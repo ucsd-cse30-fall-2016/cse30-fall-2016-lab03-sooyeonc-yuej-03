@@ -9,10 +9,6 @@
 .global decodeFile
 .func decodeFile, decodeFile
 .type decodeFile, %function
-
-.data
-    readChar: .byte 'r'
-    writeChar: .byte 'w'
  
 @ void decodeFile(char *input, char *bin, char * output, int index)
 decodeFile:
@@ -30,7 +26,7 @@ decodeFile:
     
     @ open input file
     @ r1 is 'r' aka read
-    LDR r1, =readChar
+    MOV r1, #114
     BL fopen
     
     @ input file is at r7
@@ -40,7 +36,7 @@ decodeFile:
     @ r0 is bin char array 
     MOV r0, r5
     @ r1 is 'w' aka write
-    LDR r1, =writeChar
+    MOV r1, #119
     BL fopen
     
     @ bin file is at r8
@@ -69,7 +65,7 @@ decodeFile:
     @ bin char array is r0
     MOV r0, r4
     @ 'r' is r1
-    LDR r1, =readChar
+    MOV r1, #114
     BL fopen
     
     @ bin file is r8
