@@ -34,7 +34,7 @@ decodeFile:
     
     @ open bin file
     @ r0 is bin char array 
-    MOV r0, r5
+    MOV r0, r4
     @ r1 is 'w' aka write
     MOV r1, #119
     BL fopen
@@ -44,7 +44,7 @@ decodeFile:
     
     @ codeToBinary( input, bin, index )
     @ input is r0
-    MOV r0, r5
+    MOV r0, r7
     @ bin is r1
     MOV r1, r8
     @ index is r2
@@ -52,7 +52,7 @@ decodeFile:
     BL codeToBinary
     
     @ bin file is r8
-    MOV r8, r0
+    MOV r8, r1
     
     @ fclose input file
     BL fclose
@@ -86,10 +86,10 @@ decodeFile:
     BL binaryToText
     
     @ fclose bin file
-    MOV r8, r0
+    MOV r8, r1
     BL fclose
     
-    @ fclose input file
+    @ fclose output file
     MOV r0, r8
     BL fclose
 
